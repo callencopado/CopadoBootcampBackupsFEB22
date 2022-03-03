@@ -666,6 +666,11 @@
             <isRequired>false</isRequired>
         </availableFields>
         <availableFields>
+            <field>CreatedDate</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
             <field>copado__Data_Privacy__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
@@ -756,6 +761,11 @@
             <isRequired>false</isRequired>
         </availableFields>
         <availableFields>
+            <field>copado__Last_Validation_Deployment_Status__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
             <field>copado__Last_Validation_Deployment__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
@@ -827,6 +837,11 @@
         </availableFields>
         <availableFields>
             <field>copado__Progress__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
+            <field>copado__Project__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </availableFields>
@@ -962,27 +977,12 @@
             <isRequired>false</isRequired>
         </displayedFields>
         <displayedFields>
-            <field>copado__Project__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
             <field>copado__Is_Bundle__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
         <displayedFields>
-            <field>CreatedDate</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
             <field>copado__Release__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>copado__Last_Validation_Deployment_Status__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
@@ -3392,6 +3392,11 @@
             <isRequired>false</isRequired>
         </displayedFields>
         <displayedFields>
+            <field>Sequence__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
             <field>copado__User_Story_Title__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
@@ -3402,12 +3407,12 @@
             <isRequired>false</isRequired>
         </displayedFields>
         <displayedFields>
-            <field>copado__Status__c</field>
+            <field>copado__Sprint__r.Name</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
         <displayedFields>
-            <field>copado__Sprint__r.Name</field>
+            <field>copado__Status__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
@@ -5824,6 +5829,30 @@
         <label>Work Manager Relations</label>
     </fieldSets>
     <fields>
+        <fullName>Last_Promotion_Date_GMT_Sortable__c</fullName>
+        <externalId>false</externalId>
+        <formula>TEXT(DATETIMEVALUE(copado__Last_Promotion_Date__c))</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Last Promotion Date (GMT Sortable)</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Sequence__c</fullName>
+        <externalId>false</externalId>
+        <label>Sequence</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>copado__Acceptance_Criteria_Status__c</fullName>
         <deprecated>false</deprecated>
         <externalId>false</externalId>
@@ -7067,54 +7096,74 @@ IMAGE(&quot;/img/samples/color_yellow.gif&quot;, &quot;white&quot;, 15,
             <valueSetDefinition>
                 <sorted>false</sorted>
                 <value>
-                    <fullName>Draft</fullName>
-                    <default>true</default>
-                    <label>Draft</label>
-                </value>
-                <value>
-                    <fullName>Backlog</fullName>
-                    <default>false</default>
-                    <label>Backlog</label>
-                </value>
-                <value>
-                    <fullName>Backburner</fullName>
-                    <default>false</default>
-                    <label>Backburner</label>
-                </value>
-                <value>
-                    <fullName>Awaiting Approval</fullName>
-                    <default>false</default>
-                    <label>Awaiting Approval</label>
-                </value>
-                <value>
-                    <fullName>Approved</fullName>
-                    <default>false</default>
-                    <label>Approved</label>
-                </value>
-                <value>
-                    <fullName>Rejected</fullName>
-                    <default>false</default>
-                    <label>Rejected</label>
-                </value>
-                <value>
-                    <fullName>In Progress</fullName>
-                    <default>false</default>
-                    <label>In Progress</label>
-                </value>
-                <value>
-                    <fullName>Ready for testing</fullName>
-                    <default>false</default>
-                    <label>Ready for testing</label>
-                </value>
-                <value>
-                    <fullName>Completed</fullName>
-                    <default>false</default>
-                    <label>Completed</label>
-                </value>
-                <value>
                     <fullName>Cancelled</fullName>
                     <default>false</default>
                     <label>Cancelled</label>
+                </value>
+                <value>
+                    <fullName>Requirements Verified</fullName>
+                    <default>false</default>
+                    <label>Requirements Verified</label>
+                </value>
+                <value>
+                    <fullName>Grooming</fullName>
+                    <default>false</default>
+                    <label>Grooming</label>
+                </value>
+                <value>
+                    <fullName>Grooming Complete</fullName>
+                    <default>false</default>
+                    <label>Grooming Complete</label>
+                </value>
+                <value>
+                    <fullName>Developer Assigned</fullName>
+                    <default>false</default>
+                    <label>Developer Assigned</label>
+                </value>
+                <value>
+                    <fullName>Development In Progress</fullName>
+                    <default>false</default>
+                    <label>Development In Progress</label>
+                </value>
+                <value>
+                    <fullName>Development Complete</fullName>
+                    <default>false</default>
+                    <label>Development Complete</label>
+                </value>
+                <value>
+                    <fullName>Ready for QAQA In Progress</fullName>
+                    <default>false</default>
+                    <label>Ready for QAQA In Progress</label>
+                </value>
+                <value>
+                    <fullName>QA Complete</fullName>
+                    <default>false</default>
+                    <label>QA Complete</label>
+                </value>
+                <value>
+                    <fullName>Ready for UAT</fullName>
+                    <default>false</default>
+                    <label>Ready for UAT</label>
+                </value>
+                <value>
+                    <fullName>UAT In Progress</fullName>
+                    <default>false</default>
+                    <label>UAT In Progress</label>
+                </value>
+                <value>
+                    <fullName>UAT Complete</fullName>
+                    <default>false</default>
+                    <label>UAT Complete</label>
+                </value>
+                <value>
+                    <fullName>Ready for Production</fullName>
+                    <default>false</default>
+                    <label>Ready for Production</label>
+                </value>
+                <value>
+                    <fullName>Production Released</fullName>
+                    <default>false</default>
+                    <label>Production Released</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -7795,43 +7844,59 @@ IMAGE(&quot;/img/samples/color_yellow.gif&quot;, &quot;white&quot;, 15,
         <picklistValues>
             <picklist>copado__Status__c</picklist>
             <values>
-                <fullName>Approved</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Awaiting Approval</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Backburner</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Backlog</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Cancelled</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Completed</fullName>
+                <fullName>Developer Assigned</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Draft</fullName>
-                <default>true</default>
-            </values>
-            <values>
-                <fullName>In Progress</fullName>
+                <fullName>Development Complete</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Ready for testing</fullName>
+                <fullName>Development In Progress</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Rejected</fullName>
+                <fullName>Grooming</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Grooming Complete</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Production Released</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>QA Complete</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ready for Production</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ready for QAQA In Progress</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ready for UAT</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Requirements Verified</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>UAT Complete</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>UAT In Progress</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -8242,43 +8307,59 @@ IMAGE(&quot;/img/samples/color_yellow.gif&quot;, &quot;white&quot;, 15,
         <picklistValues>
             <picklist>copado__Status__c</picklist>
             <values>
-                <fullName>Approved</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Awaiting Approval</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Backburner</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Backlog</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Cancelled</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Completed</fullName>
+                <fullName>Developer Assigned</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Draft</fullName>
-                <default>true</default>
-            </values>
-            <values>
-                <fullName>In Progress</fullName>
+                <fullName>Development Complete</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Ready for testing</fullName>
+                <fullName>Development In Progress</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Rejected</fullName>
+                <fullName>Grooming</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Grooming Complete</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Production Released</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>QA Complete</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ready for Production</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ready for QAQA In Progress</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ready for UAT</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Requirements Verified</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>UAT Complete</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>UAT In Progress</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -8689,43 +8770,59 @@ IMAGE(&quot;/img/samples/color_yellow.gif&quot;, &quot;white&quot;, 15,
         <picklistValues>
             <picklist>copado__Status__c</picklist>
             <values>
-                <fullName>Approved</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Awaiting Approval</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Backburner</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Backlog</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Cancelled</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Completed</fullName>
+                <fullName>Developer Assigned</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Draft</fullName>
-                <default>true</default>
-            </values>
-            <values>
-                <fullName>In Progress</fullName>
+                <fullName>Development Complete</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Ready for testing</fullName>
+                <fullName>Development In Progress</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Rejected</fullName>
+                <fullName>Grooming</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Grooming Complete</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Production Released</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>QA Complete</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ready for Production</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ready for QAQA In Progress</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ready for UAT</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Requirements Verified</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>UAT Complete</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>UAT In Progress</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -9136,43 +9233,59 @@ IMAGE(&quot;/img/samples/color_yellow.gif&quot;, &quot;white&quot;, 15,
         <picklistValues>
             <picklist>copado__Status__c</picklist>
             <values>
-                <fullName>Approved</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Awaiting Approval</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Backburner</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Backlog</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Cancelled</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Completed</fullName>
+                <fullName>Developer Assigned</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Draft</fullName>
-                <default>true</default>
-            </values>
-            <values>
-                <fullName>In Progress</fullName>
+                <fullName>Development Complete</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Ready for testing</fullName>
+                <fullName>Development In Progress</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Rejected</fullName>
+                <fullName>Grooming</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Grooming Complete</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Production Released</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>QA Complete</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ready for Production</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ready for QAQA In Progress</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ready for UAT</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Requirements Verified</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>UAT Complete</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>UAT In Progress</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
