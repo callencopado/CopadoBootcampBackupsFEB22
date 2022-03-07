@@ -152,11 +152,11 @@
     <compactLayouts>
         <fullName>copado__User_Story_Highlight_Panel</fullName>
         <fields>Name</fields>
+        <fields>Sequence__c</fields>
         <fields>copado__Sprint__c</fields>
         <fields>copado__Project__c</fields>
         <fields>copado__Release__c</fields>
         <fields>RecordTypeId</fields>
-        <fields>copado__Progress__c</fields>
         <fields>copado__Status__c</fields>
         <label>User Story Highlight Panel</label>
     </compactLayouts>
@@ -691,11 +691,6 @@
             <isRequired>false</isRequired>
         </availableFields>
         <availableFields>
-            <field>copado__Environment__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </availableFields>
-        <availableFields>
             <field>copado__Epic__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
@@ -732,6 +727,11 @@
         </availableFields>
         <availableFields>
             <field>IsDeleted</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
+            <field>copado__Is_Bundle__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </availableFields>
@@ -881,11 +881,6 @@
             <isRequired>false</isRequired>
         </availableFields>
         <availableFields>
-            <field>copado__Sprint__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </availableFields>
-        <availableFields>
             <field>copado__Stop_Indexing_Metadata__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
@@ -967,6 +962,11 @@
             <isRequired>false</isRequired>
         </displayedFields>
         <displayedFields>
+            <field>Sequence__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
             <field>copado__User_Story_Title__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
@@ -977,12 +977,22 @@
             <isRequired>false</isRequired>
         </displayedFields>
         <displayedFields>
-            <field>copado__Is_Bundle__c</field>
+            <field>copado__Release__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
         <displayedFields>
-            <field>copado__Release__c</field>
+            <field>copado__Sprint__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>copado__Environment__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Last_Promotion_Date_GMT_Sortable__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
@@ -7397,14 +7407,11 @@ IMAGE(&quot;/img/samples/color_yellow.gif&quot;, &quot;white&quot;, 15,
     <listViews>
         <fullName>copado__All</fullName>
         <columns>NAME</columns>
+        <columns>Sequence__c</columns>
         <columns>RECORDTYPE</columns>
         <columns>copado__User_Story_Title__c</columns>
+        <columns>copado__Environment__c</columns>
         <columns>copado__Status__c</columns>
-        <columns>copado__Priority__c</columns>
-        <columns>copado__Order__c</columns>
-        <columns>copado__US_Feature__c</columns>
-        <columns>copado__Epic__c</columns>
-        <columns>copado__Theme__c</columns>
         <columns>copado__Project__c</columns>
         <filterScope>Everything</filterScope>
         <filters>

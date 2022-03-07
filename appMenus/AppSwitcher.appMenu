@@ -69,10 +69,6 @@
         <type>CustomApplication</type>
     </appMenuItems>
     <appMenuItems>
-        <name>Travel_App</name>
-        <type>CustomApplication</type>
-    </appMenuItems>
-    <appMenuItems>
         <name>copado__Copado</name>
         <type>CustomApplication</type>
     </appMenuItems>
